@@ -1,4 +1,4 @@
-export class Conversor {
+export class Conversao {
 
 	constructor(
 		private _moedaDe?: string,

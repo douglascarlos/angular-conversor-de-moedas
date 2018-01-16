@@ -9,7 +9,8 @@ export class MoedaService {
 
   constructor() {}
 
-  private moedasObj = [ //http://fixer.io
+  // fonte: http://fixer.io
+  private moedasObj = [
 		{ "sigla": "AUD", "descricao": "Dólar australiano" },
 		{ "sigla": "BGN", "descricao": "Lev búlgaro" },
 		{ "sigla": "BRL", "descricao": "Real brasileiro" },
