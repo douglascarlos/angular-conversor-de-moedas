@@ -20,4 +20,8 @@ export class Moeda {
 		this._descricao = value;
 	}
 
+	public getDescricaoParaSelect(): string {
+		return this._sigla + ' - ' + this._descricao;
+	}
+
 }

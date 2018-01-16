@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+import { Moeda, Conversao, ConversaoResponse } from '../models';
+import { MoedaService, ConversorService } from '../services';
 
 @Component({
   selector: 'app-conversor',
@@ -7,9 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConversorComponent implements OnInit {
 
-  constructor() { }
+	private moedas: Moeda[];
+	private conversao: Conversao;
+	private possuiErro: boolean;
+	private conversorResponse: ConversaoResponse;
+
+	@ViewChild('conversorForm') conversorForm: NgForm;
+
+  constructor(
+  	private moedaService: MoedaService,
+  	private conversorService: ConversorService) { }
 
   ngOnInit() {
+  	this.moedas = this.moedaService.listarTodas();
+  	this.init();
   }
+
+  private init(): void {
+  	this.conversao = new Conversao('USD', 'BRL', null);
+  	this.possuiErro = false;
+  }
+
+  private converter(): void {
+  	if(this.validarFormulario()){
+  		alert(JSON.stringify(this.conversao));
+  	}
+  }
+
+	private validarFormulario(): boolean {
+		return this.conversorForm.form.valid;
+	}
+
 
 }
