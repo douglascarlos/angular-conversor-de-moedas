@@ -8,8 +8,16 @@ export class Moeda {
 		return this._sigla;
 	}
 
+	public set sigla(value: string) {
+		this._sigla = value;
+	}
+
 	public get descricao(): string {
 		return this._descricao;
+	}
+
+	public set descricao(value: string) {
+		this._descricao = value;
 	}
 
 }
