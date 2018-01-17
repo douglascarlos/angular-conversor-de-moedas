@@ -16,7 +16,8 @@
 			<select [ngModel]='conversao.moedaPara' (ngModelChange)="conversao.moedaPara=$event" name="moedaPara" class="form-control" required>
 				<option *ngFor="let moeda of moedas" [value]="moeda.sigla">{{ moeda.getDescricaoParaSelect() }}</option>
 			</select>
-			<input (click)="converter()" [disabled]="!validarFormulario()" type="submit" value="Converter" class="btn btn-success">
+			<input (click)="converter()" [disabled]="!validarFormulario()" type="submit" value="Converter" class="btn btn-success" data-toggle="modal" data-target="#modalCotacao">
 		</form>
 	 </div>
+	 <modal-cotacao [id]="'modalCotacao'" [conversaoResponse]="conversaoResponse" [conversao]="conversao" (onConfirm)="init()"></modal-cotacao>
 </div>
