@@ -14,8 +14,8 @@ export class ConversorService {
 
   constructor(private http: Http) {}
 
-  converter(conversao: Conversao): Observable<ConversaoResponse> {
-  	let parameters = '?base=${conversao.moedaDe}&symbols=${conversao.moedaPara}';
+  public converter(conversao: Conversao): Observable<ConversaoResponse> {
+  	let parameters = `?base=${conversao.moedaDe}&symbols=${conversao.moedaPara}`;
 
   	return this.http
       .get(this.BASE_URL + parameters)

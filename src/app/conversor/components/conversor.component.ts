@@ -14,7 +14,7 @@ export class ConversorComponent implements OnInit {
 	private moedas: Moeda[];
 	private conversao: Conversao;
 	private possuiErro: boolean;
-	private conversorResponse: ConversaoResponse;
+	private conversaoResponse: ConversaoResponse;
 
 	@ViewChild('conversorForm') conversorForm: NgForm;
 
@@ -34,7 +34,12 @@ export class ConversorComponent implements OnInit {
 
   private converter(): void {
   	if(this.validarFormulario()){
-  		alert(JSON.stringify(this.conversao));
+  		this.conversorService
+        .converter(this.conversao)
+        .subscribe(
+          response => this.conversaoResponse = response,
+          error => this.possuiErro = true
+        );
   	}
   }
 
