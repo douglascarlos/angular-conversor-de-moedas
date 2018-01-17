@@ -7,6 +7,7 @@ import { ConversorComponent } from './components';
 import { MoedaService, ConversorService } from './services';
 import { NumeroDirective } from './directives';
 import { ModalCotacaoComponent } from './utils';
+import { DataBrPipe } from './pipes';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { ModalCotacaoComponent } from './utils';
   declarations: [
   	ConversorComponent,
   	NumeroDirective,
-  	ModalCotacaoComponent
+  	ModalCotacaoComponent,
+  	DataBrPipe
   ],
   exports: [
   	ConversorComponent
